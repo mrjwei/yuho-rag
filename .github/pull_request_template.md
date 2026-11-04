@@ -2,6 +2,10 @@
 
 <!-- What does this change do? -->
 
+## Related issue
+
+Closes #
+
 ## Changes
 
 -
