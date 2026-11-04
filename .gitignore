@@ -40,3 +40,5 @@ dist/
 .vscode/
 *.swp
 *.swo
+
+data/raw/.cache/
