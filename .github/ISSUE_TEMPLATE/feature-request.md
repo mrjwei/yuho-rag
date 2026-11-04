@@ -2,7 +2,7 @@
 name: Feature request
 about: Suggest an improvement for Yuho RAG
 title: "[Feature] "
-labels: ''
+labels: enhancement
 assignees: ''
 
 ---
