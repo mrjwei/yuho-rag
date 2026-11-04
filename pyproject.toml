@@ -1,0 +1,26 @@
+[project]
+name = "yuho-rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Jesse Wei", email = "jesseweijapan@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.162.0",
+    "requests>=2.34.2",
+]
+
+[project.scripts]
+yuho-rag = "yuho_rag:main"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
+]
