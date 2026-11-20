@@ -6,11 +6,19 @@ This specification outlines the requirements and design for the Yuho RAG (Retrie
 ## Functional Requirements
 1. **Data Retrieval**: The system must be able to fetch the latest Yuho PDFs from the EDINET API v2.
 2. **Data Storage**: The fetched PDFs should be stored in a structured format that allows for easy access and retrieval.
-3. **User Interface**: The system should provide a user-friendly interface for users to search, view, and analyze the Yuho reports.
+3. **HTTP API (`/ask`, `/compare`) with OpenAPI docs**: The system should provide an HTTP API with endpoints for asking questions about the Yuho reports and comparing information across different companies. The API should be documented using OpenAPI specifications to ensure clarity and ease of use for developers.
 4. **Search Functionality**: Users should be able to search for information within the Yuho reports and ask questions about the content of the reports and receive relevant information in response.
-5. **Analysis Tools**: The system should include tools for analyzing the content of the Yuho reports, including text extraction, summarization, and data visualization. These tools are used when answering questions that require analysis and/or data visualisation.
+5. **Cross-company comparison (`/compare`)**: The system should allow users to compare information across different companies' Yuho reports.
+6. **Every answer cites company + page**: All answers provided by the system should include citations that reference the specific company and page number from which the information was retrieved, ensuring transparency and traceability of the information provided.
 
 ## Non-Functional Requirements
-1. **Retrieval quality**: The system should ensure that the retrieved Yuho PDFs are accurate and up-to-date. Retrieval quality is measured by the accuracy and relevance of the information provided in response to user queries using recall@5, precision@5, F1 score, and MRR (Mean Reciprocal Rank).
+1. **Retrieval quality**: The system should ensure that the retrieved Yuho PDFs are accurate and up-to-date. Retrieval quality is measured by the accuracy and relevance of the information provided in response to user queries using recall@5 and MRR (Mean Reciprocal Rank). precision@5 and F1 score are secondary.
 2. **Answer quality**: The system should provide accurate and helpful answers to user questions based on the content of the Yuho reports. Answer quality is measured using a 3-point LLM-as-judge rubric for faithfulness and citation correctness.
-3. **Performance**: The system should be able to handle a large number of concurrent users and provide fast response times for data retrieval and analysis.
+3. **Performance**: The system should be able to handle p95 latency target for `/ask` (e.g. < 6 s warm), single-instance demo, and provide fast response times for data retrieval and analysis.
+
+## Out of scope
+1. Auth/accounts
+2. User uploads
+3. Frontend
+4. XBRL
+5. Fine-tuning
